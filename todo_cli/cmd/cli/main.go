@@ -23,7 +23,7 @@ func listPrinter(l *todo.List, avoidComplete bool, verbose bool) {
 
 		var message string
 		if verbose {
-			message = fmt.Sprintf("%d - Name: %s - Created at: %s", index+1, item.Task, item.CompletedAt)
+			message = fmt.Sprintf("%d - Name: %s - Created at: %s", index+1, item.Task, item.CreatedAt.Format("2024-12-06 15:04:05"))
 		} else {
 			message = fmt.Sprintf("%d - %s", index+1, item.Task)
 		}
