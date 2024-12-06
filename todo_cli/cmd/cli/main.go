@@ -7,6 +7,7 @@ import (
 	"io"
 	"os"
 	"strings"
+	"time"
 
 	todo "github.com/ebsouza/todo_app_cli"
 )
@@ -19,17 +20,15 @@ func listPrinter(l *todo.List, avoidComplete bool, verbose bool) {
 			continue
 		}
 
-		suffix := "[Done]"
-
 		var message string
 		if verbose {
-			message = fmt.Sprintf("%d - Name: %s - Created at: %s", index+1, item.Task, item.CreatedAt.Format("2024-12-06 15:04:05"))
+			message = fmt.Sprintf("%d - Name: %s - Created at: %s", index+1, item.Task, item.CreatedAt.Format(time.RFC822))
 		} else {
 			message = fmt.Sprintf("%d - %s", index+1, item.Task)
 		}
 
 		if item.Done {
-			fmt.Println(message, suffix)
+			fmt.Println(message, "[Done]")
 			continue
 		}
 		fmt.Println(message)
