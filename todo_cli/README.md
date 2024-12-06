@@ -1,5 +1,7 @@
 ### TODO CLI App
 
+![](readme/todo-app.png)
+
 #### Initializing the module
 ```
 go mod init github.com/ebsouza/todo_app_cli
